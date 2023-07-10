@@ -44,34 +44,43 @@ class WhatsApp_API {
     }
     clearCache() {
         //console.log(__dirname + "/" + this.path);
-        //let cr_path = this.path;
+        let cr_path = this.path;
         if (!fs.existsSync(this.path)) {
             //console.log(cr_path);
-            fs.mkdirSync(path.resolve(this.path));
-            //cr_path = path.join(__dirname, "../", "./cache");
+            //cfs.mkdirSync(path.resolve(this.path));
+            cr_path = path.join(__dirname, "../", "./cache");
         }
+        
 
-        fs.readdir(this.path, (err, files) => {
+        fs.readdir(cr_path, (err, files) => {
             if (err) throw err;
             for (const file of files) {
-                fs.unlink(path.join(this.path, file), (err) => {
+                fs.unlink(path.join(cr_path, file), (err) => {
                     if (err) throw err;
                 });
             }
         });
     }
     init(cache_path) {
-        this.db = new Sifbase(path.join(__dirname, "./src/data/contacts.json"));
+        this.db = new Sifbase(path.join(__dirname, "./data/contacts.json"));
         if (cache_path) this.path = cache_path;
         //this.cache_path = path.join(__dirname, '../', '/cache');
         if (this.client == null)
             this.client = new Client({
-                authStrategy: new LocalAuth(),
+                authStrategy: new LocalAuth({
+                    dataPath:path.join(__dirname,"../web_auth")
+                }),
                 restartOnAuthFail: true,
                 puppeteer: {
-                    //executablePath: path.join(__dirname, "../", "./win64-982053/chrome-win/chrome.exe")
-                    executablePath:"./src/win64-982053/chrome-win/chrome.exe"
-                }
+                    executablePath: path.join(__dirname, "../", "./win64-982053/chrome-win/chrome.exe"),
+                    args: ['--no-sandbox'],
+                
+                    //executablePath: "./src/win64-982053/chrome-win/chrome.exe"
+                },
+                webVersionCache:{
+                    type:"local",
+                    path:path.join(__dirname,"../web_cache")
+                },
             });
 
 
@@ -88,8 +97,8 @@ class WhatsApp_API {
             if (this.loadingInit) clearInterval(this.loadingInit);
             qrter.generate(qr, { small: true });
             this.isAuth = false;
-            const file = `${this.path}/${Date.now()}.png`;
-            const rel_file = `./src/cache/${Date.now()}.png`;
+            const file = path.join(__dirname,`../cache/${Date.now()}.png`);
+            const rel_file = path.join(__dirname,`../cache/${Date.now()}.png`);
             qrcode.toFile(file, qr, {
                 type: "png",
                 errorCorrectionLevel: "low"

@@ -1,7 +1,7 @@
 .vscode
-.wwebjs_auth
-.wwebjs_cache
 dist
 node_modules
 build
 win64-982053
+web_auth
+web_cache
