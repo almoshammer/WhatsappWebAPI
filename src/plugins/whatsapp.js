@@ -44,17 +44,14 @@ class WhatsApp_API {
     }
     clearCache() {
         //console.log(__dirname + "/" + this.path);
-        //let cr_path = this.path;
-        if (!fs.existsSync(this.path)) {
-            //console.log(cr_path);
-            fs.mkdirSync(path.resolve(this.path));
-            //cr_path = path.join(__dirname, "../", "./cache");
+        let cr_path = this.path;
+        if (!fs.existsSync(cr_path)) {
+            cr_path = path.join(__dirname, "../", "./cache");
         }
-
-        fs.readdir(this.path, (err, files) => {
+        fs.readdir(cr_path, (err, files) => {
             if (err) throw err;
             for (const file of files) {
-                fs.unlink(path.join(this.path, file), (err) => {
+                fs.unlink(path.join(cr_path, file), (err) => {
                     if (err) throw err;
                 });
             }
