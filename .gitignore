@@ -3,5 +3,5 @@ dist
 node_modules
 build
 win64-982053
-web_auth
-web_cache
+./src/web_auth
+./src/web_cache

@@ -49,6 +49,7 @@ class WhatsApp_API {
             //console.log(cr_path);
             //cfs.mkdirSync(path.resolve(this.path));
             cr_path = path.join(__dirname, "../", "./cache");
+            if(!fs.existsSync(cr_path))fs.mkdirSync(cr_path, { recursive: true });
         }
         
 
@@ -161,7 +162,7 @@ class WhatsApp_API {
     }
     setQRPath(cache_path) {
         if (!fs.existsSync(cache_path)) {
-            fs.mkdir(cache_path);
+            fs.mkdirSync(cache_path);
         }
         this.path = cache_path;
     }

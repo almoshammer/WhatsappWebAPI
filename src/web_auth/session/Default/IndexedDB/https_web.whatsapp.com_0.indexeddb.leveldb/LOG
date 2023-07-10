@@ -1,27 +1,7 @@
-2023/07/10-16:36:25.273 20f0 Reusing MANIFEST d:\STORAGE_PROJECTS\Node\automoline_whatsapp_interface\src\web_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2023/07/10-16:36:25.274 20f0 Recovering log #16
-2023/07/10-16:36:25.306 20f0 Reusing old log d:\STORAGE_PROJECTS\Node\automoline_whatsapp_interface\src\web_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000016.log 
-2023/07/10-16:36:25.306 20f0 Delete type=2 #15
-2023/07/10-16:36:25.515 1f20 Manual compaction at level-0 from '\x00\x0d\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x0e\x00\x00\x00' @ 0 : 0; will stop at (end)
-2023/07/10-16:36:25.526 20f0 Level-0 table #21: started
-2023/07/10-16:36:25.535 20f0 Level-0 table #21: 75991 bytes OK
-2023/07/10-16:36:25.540 20f0 Delete type=0 #16
-2023/07/10-16:36:25.541 20f0 Manual compaction at level-0 from '\x00\x0b\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x0c\x00\x00\x00' @ 0 : 0; will stop at (end)
-2023/07/10-16:36:25.547 1f20 Level-0 table #23: started
-2023/07/10-16:36:25.556 1f20 Level-0 table #23: 509 bytes OK
-2023/07/10-16:36:25.560 1f20 Delete type=0 #20
-2023/07/10-16:36:25.561 1f20 Manual compaction at level-0 from '\x00\x0a\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x0b\x00\x00\x00' @ 0 : 0; will stop at '\x00\x0a\x02\x02\x03\x00\x00\x00\x00\x00\x00\xf0?' @ 12184 : 0
-2023/07/10-16:36:25.561 1f20 Compacting 1@0 + 1@1 files
-2023/07/10-16:36:25.577 1f20 Generated table #24@0: 1798 keys, 29401 bytes
-2023/07/10-16:36:25.577 1f20 Compacted 1@0 + 1@1 files => 29401 bytes
-2023/07/10-16:36:25.581 1f20 compacted to: files[ 0 1 1 0 0 0 0 ]
-2023/07/10-16:36:25.582 1f20 Delete type=2 #23
-2023/07/10-16:36:25.582 1f20 Manual compaction at level-0 from '\x00\x0a\x02\x02\x03\x00\x00\x00\x00\x00\x00\xf0?' @ 12184 : 0 .. '\x00\x0b\x00\x00\x00' @ 0 : 0; will stop at (end)
-2023/07/10-16:36:25.625 1f20 Manual compaction at level-0 from '\x00\x09\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x0a\x00\x00\x00' @ 0 : 0; will stop at (end)
-2023/07/10-16:36:25.626 66dc Manual compaction at level-1 from '\x00\x09\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x0a\x00\x00\x00' @ 0 : 0; will stop at '\x00\x09\x06 \x03\x00\x00\x00\x00\x00\x80V@\x00\x01\x0b\x00I\x00d\x00T\x00t\x00l\x009\x000\x00D\x00a\x00y\x00s' @ 7383 : 1
-2023/07/10-16:36:25.626 66dc Compacting 1@1 + 1@2 files
-2023/07/10-16:36:25.637 66dc Generated table #25@1: 424 keys, 19136 bytes
-2023/07/10-16:36:25.637 66dc Compacted 1@1 + 1@2 files => 19136 bytes
-2023/07/10-16:36:25.642 66dc compacted to: files[ 0 0 1 0 0 0 0 ]
-2023/07/10-16:36:25.642 66dc Delete type=2 #21
-2023/07/10-16:36:25.675 1f20 Manual compaction at level-1 from '\x00\x09\x06 \x03\x00\x00\x00\x00\x00\x80V@\x00\x01\x0b\x00I\x00d\x00T\x00t\x00l\x009\x000\x00D\x00a\x00y\x00s' @ 7383 : 1 .. '\x00\x0a\x00\x00\x00' @ 0 : 0; will stop at (end)
+2023/07/10-16:41:16.248 6580 Reusing MANIFEST d:\STORAGE_PROJECTS\Node\automoline_whatsapp_interface\src\web_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/07/10-16:41:16.248 6580 Recovering log #22
+2023/07/10-16:41:16.257 6580 Reusing old log d:\STORAGE_PROJECTS\Node\automoline_whatsapp_interface\src\web_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000022.log 
+2023/07/10-16:41:16.258 6580 Delete type=2 #18
+2023/07/10-16:41:16.258 6580 Delete type=2 #24
+2023/07/10-16:41:16.423 4b8c Manual compaction at level-0 from '\x00\x0e\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x0f\x00\x00\x00' @ 0 : 0; will stop at (end)
+2023/07/10-16:41:27.479 3c2c Manual compaction at level-0 from '\x00\x12\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x13\x00\x00\x00' @ 0 : 0; will stop at (end)
