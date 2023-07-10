@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/tailwind.min.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <title>كود الربط</title>
+</head>
+
+<body>
+    <div class="container items-center flex flex-col">
+        <div class="wrapper border ml-gray-500 rounded-md">
+            <div class="h-1 w-full rounded-full bg-gray-500"></div>
+            <img class="hidden" id="qr_img" height="300" width="300" />
+            <div id="pnl_loading" class="flex flex-col items-center justify-center" style="width:300px;height:300px;">
+                <fas class="fas fa-spinner fa-pulse w-20 h-20 text-gray-600"></fas>
+                <p class="mt-2">يرجى الانتظار...</p>
+            </div>
+
+        </div>
+        <div id="pnl_caption" class="hidden wrapper text-center" style="margin-top: 20px;">
+            <h1 class="font-medium text-xl inline">كود الربط</h1>
+            <i class="fas fa-camera"></i>
+            <p>
+                ..قم بمسح الرمز باستخدام جوالك
+            </p>
+
+        </div>
+        <!-- <button id="btn_test" type="button"
+            class="px-4 py-2 bg-blue-600 text-white hover:opacity-80 rounded-md">Click</button> -->
+    </div>
+    <script src="./src/assets/js/all.min.js"></script>
+    <!-- <script src="../assets/js/client.js"></script> -->
+</body>
+
+</html>

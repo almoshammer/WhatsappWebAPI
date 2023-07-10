@@ -1,0 +1,27 @@
+
+
+.container{
+    padding:0;
+    margin:0 auto;
+}
+.wrapper{
+   margin:0 auto;
+   padding:0;
+}
+
+@media and (min-width:480px){
+
+}
+@media and (min-width:640px){
+    
+}
+@media and (min-width:960px){
+    
+}
+@media and (min-width:1024px){
+    
+}
+
+.hidden{
+    display:none;
+}

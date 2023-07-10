@@ -1,0 +1,39 @@
+{
+  "name": "automoline_whatsapp_interface",
+  "version": "1.0.0",
+  "description": "WhatsApp Web interface for automoline system",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild  index.js --allow-overwrite  --bundle --platform=node --outfile=index-out.js --legal-comments=none  --keep-names ",
+    "start": "nodemon src/index.js",
+    "package": "pkg.cmd -t node18-win-x64 --debug . -o app.exe",
+    "package_compress": "pkg.cmd -t node18-win-x64 --debug --compress GZip . -o app.exe"
+  },
+  "author": "BELAL_ALMOSHAMMER",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "chalk": "^4.1.2",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "qrcode": "^1.5.3",
+    "qrcode-terminal": "^0.12.0",
+    "sifbase": "^1.0.2",
+    "whatsapp-web.js": "^1.21.0",
+    "ws": "^8.13.0"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "**/test/**",
+      "**/docs/**"
+    ],
+    "delay": 2500
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.9"
+  },
+  "bin": "src/index.mjs"
+}
