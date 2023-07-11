@@ -19,8 +19,8 @@ const express = require('express');
 // const __dirname = path.dirname(__filename);
 module.exports = function (app) {
 
-    app.use('/', express.static(path.join(process.cwd(), '.')));
-    app.set('views', './src/views')
+    app.use('/', express.static(path.join(__dirname, '..')));
+    app.set('views', path.join(__dirname,'../src/views'))
     app.use(express.static('./src/assets'));
     app.use(express.static('./src/cache'));
     app.use(express.static('./src'));

@@ -1,0 +1,3 @@
+[0711/162356.599:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
+[0711/162356.599:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[0711/162413.300:INFO:CONSOLE(14)] "Deprecation warning: use moment.updateLocale(localeName, config) to change an existing locale. moment.defineLocale(localeName, config) should only be used for creating a new locale See http://momentjs.com/guides/#/warnings/define-locale/ for more info.", source: https://web.whatsapp.com/vendor1~app.a91035d81a749b3d5627.js (14)

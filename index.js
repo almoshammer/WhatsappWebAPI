@@ -8,7 +8,6 @@ const fs = require('fs');
 // Begin init socket
 let app = express();
 var qr_image_path = "";
-var client_is_ready = false;
 Router(app);
 
 const { WebSocketServer } = require('ws');
@@ -51,7 +50,6 @@ wweb.setSocket(wss);
 wweb.setListener(file => {
     qr_image_path = file;
     console.log('Callback file: ' + file);
-    wss.clients.forEach(client => client.send("CMD:qr"));
 });
 wweb.setOnReady(() => {
     console.log(chalk.bold.green("Client is ready"));
@@ -64,7 +62,7 @@ wweb.init('./src/cache');
 app.get("/qr", (req, res) => {
     checknet().then(v => {
         const data = { title: "No file" };
-        if (client_is_ready) res.status(200).render("client_ready");
+        if (wweb.client_status) res.status(200).render("client_ready");
         else res.status(200).render('qr', data);
     }).catch(() => {
         res.status(200).render('no_internet');
@@ -75,7 +73,7 @@ app.get("/qr", (req, res) => {
 app.get("/static_qr", (req, res) => {
     //console.log(qr_image_path);
     checknet().then(v => {
-        if (client_is_ready)
+        if (wweb.client_status)
             res.status(200).render("client_ready");
         else
             res.status(200).render('static_qr', { qr_path: qr_image_path })
@@ -94,7 +92,7 @@ app.post('/api/sendText', async (req, res) => {
         wss.clients.forEach(client => client.send("CMD:nointernet"));
         return;
     }
-    if (!client_is_ready) {
+    if (!wss.client_status) {
         console.log(chalk.cyan('Client is not ready'));
         res.status(400).send("غير متصل");
         return;
@@ -104,6 +102,11 @@ app.post('/api/sendText', async (req, res) => {
 
 app.post("/api/sendPdf", async (req, res) => {
     // checknet().then(async (v) => {
+   
+    if (!wweb.client_status) {
+        res.status(400).send("Client is not ready");
+        return;
+    }
     try {
         await checknet();
     } catch {
@@ -112,7 +115,7 @@ app.post("/api/sendPdf", async (req, res) => {
         wss.clients.forEach(client => client.send("CMD:nointernet"));
         return;
     }
-    if (!client_is_ready) {
+    if (!wweb.client_status) {
         console.log(chalk.cyan('Client is not ready'));
         res.status(400).send("غير متصل");
         return;
@@ -123,9 +126,11 @@ app.post("/api/sendPdf", async (req, res) => {
         res.status(400).send("الملف غير موجود");
         return { error: "file not exist" };
     } else console.log("file exists");
+    res.status(200).send("file sending");
     let response = await wweb.sendFile(phone, path, caption);
-    if (!response || response.error) res.status(400).send(res.error);
-    else res.status(200).send(res.body);
+
+    // if (!response || response.error) res.status(400).send(res.error);
+    // else res.status(200).send(res.body);
 });
 
 app.get('/api/check_internet', (req, res) => {
@@ -140,8 +145,7 @@ app.get('/api/check_internet', (req, res) => {
 app.get('/api/get_status', async (req, res) => {
     try {
         await checknet();
-        if (!wweb.isAuth) { res.status(401).send(4); return; }
-
+        if (!wweb.client_status) { res.status(401).send(4); return; }
     } catch {
         wss.clients.forEach(client => client.send("CMD:nointernet"));
         res.status(400).send(5);
